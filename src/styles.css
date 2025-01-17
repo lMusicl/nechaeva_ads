@@ -9,18 +9,18 @@
 }
 
 @font-face {
-    font-family: "Roboto Regular";
-    src: url("../assets/fonts/Roboto-Regular.ttf") format("truetype");
+    font-family: "OpenSans Regular";
+    src: url("../assets/fonts/OpenSans-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "Roboto Italic";
-    src: url("../assets/fonts/Roboto-Italic.ttf") format("truetype");
+    font-family: "OpenSans Italic";
+    src: url("../assets/fonts/OpenSans-Italic.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "Roboto Bold";
-    src: url("../assets/fonts/Roboto-Bold.ttf") format("truetype");
+    font-family: "OpenSans Bold";
+    src: url("../assets/fonts/OpenSans-Bold.ttf") format("truetype");
 }
 
 * {
@@ -117,12 +117,12 @@ section.main .container {
 
 .main-content__container {
     display: flex;
-    column-gap: 40px;
+    column-gap: 20px;
     margin-bottom: 20px;
 }
 
 .main-content__label {
-    font-family: "Roboto Bold", sans-serif;
+    font-family: "OpenSans Bold", sans-serif;
     font-weight: 700;
     font-size: 24px;
     color: #fff;
@@ -140,7 +140,7 @@ section.main .container {
 }
 
 .main-content__list ul li {
-    font-family: "Roboto Regular", sans-serif;
+    font-family: "OpenSans Regular", sans-serif;
     font-weight: 400;
     font-size: 20px;
     color: #fff;
@@ -150,18 +150,18 @@ section.main .container {
 }
 
 .main-content__list ul li svg {
-    width: 21px;
-    height: 21px;
+    width: 18px;
+    height: 18px;
 }
 
 .main-content__list ul li span {
-    font-family: "Roboto Italic", sans-serif;
+    font-family: "OpenSans Italic", sans-serif;
     font-style: italic;
 }
 
 
 .main-content__description {
-    font-family: "Roboto Regular", sans-serif;
+    font-family: "OpenSans Regular", sans-serif;
     font-weight: 400;
     font-size: 20px;
     color: #fff;
@@ -174,25 +174,31 @@ section.main .container {
     display: inline-block;
     padding: 10px 20px;
     text-decoration: none;
-    font-family: "Roboto Bold", sans-serif;
+    font-family: "OpenSans Bold", sans-serif;
     font-weight: 700;
     font-size: 18px;
     text-transform: uppercase;
     color: #fff;
-    max-width: 239px !important;
+    max-width: 250px !important;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid #fff;
     position: relative;
     z-index: 99;
+    transition: all 0.3s linear;
 }
 
 .main-content__button a svg,
 .about-content__button a svg {
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     top: 5px;
     right: 5px;
+}
+
+.main-content__button a:hover,
+.about-content__button a:hover {
+    box-shadow: 0 0 40px 40px rgba(207, 0, 96, 0.1);
 }
 
 .main-content__image {
@@ -296,16 +302,16 @@ section.about .container {
 
 .about-content__left-item .arrow {
     position: absolute;
-    width: 17px;
-    height: 17px;
+    width: 16px;
+    height: 16px;
     top: 10px;
     right: 20px;
     display: flex;
 }
 
 .about-content__left-item .arrow svg {
-    width: 17px;
-    height: 17px;
+    width: 16px;
+    height: 16px;
 }
 
 .about-content__button {
@@ -337,14 +343,14 @@ section.about .container {
 }
 
 .about-content__right-item-list ul li {
-    font-family: "Roboto Regular", sans-serif;
+    font-family: "OpenSans Regular", sans-serif;
     font-weight: 400;
     font-size: 20px;
     color: #fff;
 }
 
 .about-content__right-item-list ul p {
-    font-family: "Roboto Italic", sans-serif;
+    font-family: "OpenSans Italic", sans-serif;
     font-style: italic;
     font-weight: 400;
     font-size: 14px;
@@ -356,7 +362,7 @@ section.about .container {
 }
 
 .about-content__right-item-list ul p span:last-child {
-    font-family: "Roboto Regular", sans-serif;
+    font-family: "OpenSans Regular", sans-serif;
     font-style: normal;
     text-decoration: none;
 }
@@ -780,7 +786,7 @@ section.experience .container {
 }
 
 .form-content-left-title {
-    font-family: "Roboto Bold", sans-serif;
+    font-family: "OpenSans Bold", sans-serif;
     font-weight: 700;
     font-size: 20px;
     color: #fff;
@@ -800,7 +806,7 @@ form.form-content-left-form input {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid #fff;
     padding: 20px;
-    font-family: "Roboto Bold", sans-serif;
+    font-family: "OpenSans Bold", sans-serif;
     font-weight: 700;
     font-size: 18px;
     text-transform: uppercase;
@@ -826,7 +832,7 @@ form.form-content-left-form input[type="text"] {
 
 form.form-content-left-form input::placeholder {
     color: #FFFFFF;
-    font-family: "Roboto Bold", sans-serif;
+    font-family: "OpenSans Bold", sans-serif;
     font-weight: 700;
     font-size: 18px;
     text-transform: uppercase;
@@ -844,7 +850,7 @@ form .form-button {
     position: relative;
     border: 1px solid #fff;
     padding: 10px 20px;
-    font-family: "Roboto Bold", sans-serif;
+    font-family: "OpenSans Bold", sans-serif;
     font-weight: 700;
     font-size: 18px;
     text-transform: uppercase;
@@ -901,7 +907,7 @@ form .form-button:active {
 }
 
 .footer-content-logo {
-    font-family: "Roboto Bold", sans-serif;
+    font-family: "OpenSans Bold", sans-serif;
     font-weight: 700;
     text-align: center;
     color: rgba(255, 255, 255, 0.25);
@@ -916,9 +922,6 @@ form .form-button:active {
     font-size: 18px;
 }
 
-.footer-content-bottom {
-    font-size: 10px;
-}
 
 @media screen and (max-width: 1439px) {
     .about,
