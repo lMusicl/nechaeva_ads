@@ -198,7 +198,8 @@ section.main .container {
 
 .main-content__button a:hover,
 .about-content__button a:hover {
-    box-shadow: 0 0 40px 40px rgba(207, 0, 96, 0.1);
+    box-shadow: 0 0 55px 10px rgb(207 0 96 / 41%);
+    text-shadow: 0 0 40px rgb(207, 0, 97), 0 0 40px rgb(207, 0, 97);
 }
 
 .main-content__image {
@@ -868,10 +869,9 @@ form .form-button::before {
     right: 5px;
 }
 
-
 form .form-button:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: #CF0060;
+    box-shadow: 0 0 55px 10px rgb(207 0 96 / 41%);
+    text-shadow: 0 0 40px rgb(207, 0, 97), 0 0 40px rgb(207, 0, 97);
 }
 
 form .form-button:active {
