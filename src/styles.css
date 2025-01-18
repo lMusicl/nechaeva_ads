@@ -373,6 +373,7 @@ section.about .container {
 section.experience {
     /* z-index: 10; */
     position: relative;
+    overflow: hidden;
     margin-top: -60px;
     background-image: url("../assets/images/line.png");
     background-position: calc(50% - 160px) top;
@@ -668,19 +669,34 @@ section.experience .container {
     height: 57px !important;
     top: 50% !important;
     transform: translateY(-50%);
+    transition: all 0.3s linear;
 }
 
 .swiper-button-prev {
     left: 0 !important;
-    background: url('../assets/images/icons/arrow-slider.svg') no-repeat center;
+    /* background: url('../assets/images/icons/arrow-slider.svg') no-repeat center; */
     z-index: 10;
     transform: rotate(180deg);
 }
 
 .swiper-button-next {
     right: 0 !important;
-    background: url('../assets/images/icons/arrow-slider.svg') no-repeat center;
+    /* background: url('../assets/images/icons/arrow-slider.svg') no-repeat center; */
     z-index: 10;
+}
+
+.st0 {
+    transition: all 0.3s linear;
+}
+
+.swiper-button-prev:hover .st0,
+.swiper-button-next:hover .st0 {
+    stroke: #CF0060;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    opacity: 0.7;
 }
 
 .swiper-button-prev::after,
@@ -729,6 +745,11 @@ section.experience .container {
     height: 18px;
     top: 50%;
     left: 0;
+    transition: all 0.3s linear;
+}
+
+.lightbox-close:hover::before {
+    opacity: 0.5;
 }
 
 
@@ -783,7 +804,7 @@ section.experience .container {
 }
 
 .form-content-left {
-    max-width: 535px;
+    max-width: 580px;
 }
 
 .form-content-left-title {
@@ -858,6 +879,7 @@ form .form-button {
     text-align: center;
     color: #fff;
     background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s linear;
 }
 
 form .form-button::before {
@@ -904,6 +926,10 @@ form .form-button:active {
 
 .footer-content-social a svg {
     fill: #535353;
+    transition: all 0.3s linear;
+}
+.footer-content-social a:hover svg {
+    fill: #FFFFFF;
 }
 
 .footer-content-logo {
