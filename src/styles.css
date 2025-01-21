@@ -33,6 +33,7 @@ body {
     background-color: #1A1A1A;
     -webkit-text-stroke-width: 0 !important;
     -webkit-font-smoothing: antialiased !important;
+    text-shadow: 0 0 0 #000000 !important;
 }
 
 /*-------------------------------------------------------- MAIN ----------------------------------------- */
