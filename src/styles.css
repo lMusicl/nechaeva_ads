@@ -26,13 +26,17 @@
 @font-face {
     font-family: "OpenSans Italic Safari";
     src: url("../assets/fonts/OpenSans-Italic.ttf") format("truetype");
-    font-style: oblique 10deg;
+    font-style: normal;
+    font-weight: normal;
+    transform: skew(-10deg);
 }
 
 @font-face {
     font-family: "Druk Cyr Italic Safari";
     src: url("../assets/fonts/DrukCyr-BoldItalic.ttf") format("truetype");
-    font-style: oblique 10deg;
+    font-style: normal;
+    font-weight: bold;
+    transform: skew(-10deg);
 }
 
 * {
@@ -1408,21 +1412,28 @@ form .form-button:active {
     }
 }
 
-/* Общие стили для курсивных текстов */
+/* Общие стили для курсивных текстов в Safari */
 @media not all and (min-resolution:.001dpcm) { 
     @supports (-webkit-appearance:none) {
-        /* Корректировка для Safari */
+        /* Заменяем Druk Cyr Italic на специальную версию для Safari */
+        .main-content__title h2,
         .main-content__title span,
         .about-title span,
         .experience-title span,
         .case-title span,
-        .form-title span,
+        .form-title span {
+            font-family: "Druk Cyr Italic Safari" !important;
+            font-style: normal !important;
+        }
+
+        /* Заменяем OpenSans Italic на специальную версию для Safari */
         .main-content__list ul li span,
         .main-content__list-mobile ul li span,
         .about-content__right-item-list ul p,
-        [class*="font-style: italic"] {
-            /* Уменьшаем наклон для Safari */
-            font-style: oblique 10deg;
+        .main-content__description span,
+        .main-content__description-mobile span {
+            font-family: "OpenSans Italic Safari" !important;
+            font-style: normal !important;
         }
     }
 }
