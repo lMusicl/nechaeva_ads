@@ -1395,3 +1395,40 @@ form .form-button:active {
         right: -35%;
     }
 }
+
+/* Специальные настройки теней для Safari */
+@media not all and (min-resolution:.001dpcm) { 
+    @supports (-webkit-appearance:none) {
+        /* Основные заголовки */
+        .main-content__title span {
+            text-shadow: 0 0 20px rgba(207, 0, 96, 0.7), 0 0 25px rgba(207, 0, 96, 0.5);
+        }
+
+        /* Фиолетовые тени */
+        .about-title span {
+            text-shadow: 0 0 20px rgba(140, 30, 255, 0.7), 0 0 25px rgba(140, 30, 255, 0.5);
+        }
+
+        .about-content__right-item-title {
+            text-shadow: 0 0 10px rgba(140, 30, 255, 0.7), 0 0 20px rgba(140, 30, 255, 0.5);
+        }
+
+        /* Розовые тени */
+        .experience-title span {
+            text-shadow: 0 0 20px rgba(207, 0, 96, 0.7), 0 0 25px rgba(207, 0, 96, 0.5);
+        }
+
+        .experience-item .experience-item-title {
+            text-shadow: 0 0 20px rgba(207, 0, 96, 0.7);
+        }
+
+        /* Фиолетовые тени в нижней части */
+        .case-title span {
+            text-shadow: 0 0 20px rgba(140, 30, 255, 0.7), 0 0 25px rgba(140, 30, 255, 0.5);
+        }
+
+        .form-title span {
+            text-shadow: 0 0 20px rgba(207, 0, 96, 0.7), 0 0 25px rgba(207, 0, 96, 0.5);
+        }
+    }
+}
