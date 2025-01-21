@@ -1401,34 +1401,46 @@ form .form-button:active {
     @supports (-webkit-appearance:none) {
         /* Основные заголовки */
         .main-content__title span {
-            text-shadow: 0 0 20px rgba(207, 0, 96, 0.7), 0 0 25px rgba(207, 0, 96, 0.5);
+            text-shadow: 0 0 8px rgba(207, 0, 96, 0.4),
+                         0 0 15px rgba(207, 0, 96, 0.3),
+                         0 0 25px rgba(207, 0, 96, 0.2);
         }
 
         /* Фиолетовые тени */
         .about-title span {
-            text-shadow: 0 0 20px rgba(140, 30, 255, 0.7), 0 0 25px rgba(140, 30, 255, 0.5);
+            text-shadow: 0 0 8px rgba(140, 30, 255, 0.4),
+                         0 0 15px rgba(140, 30, 255, 0.3),
+                         0 0 25px rgba(140, 30, 255, 0.2);
         }
 
         .about-content__right-item-title {
-            text-shadow: 0 0 10px rgba(140, 30, 255, 0.7), 0 0 20px rgba(140, 30, 255, 0.5);
+            text-shadow: 0 0 8px rgba(140, 30, 255, 0.4),
+                         0 0 15px rgba(140, 30, 255, 0.3);
         }
 
         /* Розовые тени */
         .experience-title span {
-            text-shadow: 0 0 20px rgba(207, 0, 96, 0.7), 0 0 25px rgba(207, 0, 96, 0.5);
+            text-shadow: 0 0 8px rgba(207, 0, 96, 0.4),
+                         0 0 15px rgba(207, 0, 96, 0.3),
+                         0 0 25px rgba(207, 0, 96, 0.2);
         }
 
         .experience-item .experience-item-title {
-            text-shadow: 0 0 20px rgba(207, 0, 96, 0.7);
+            text-shadow: 0 0 8px rgba(207, 0, 96, 0.4),
+                         0 0 15px rgba(207, 0, 96, 0.3);
         }
 
         /* Фиолетовые тени в нижней части */
         .case-title span {
-            text-shadow: 0 0 20px rgba(140, 30, 255, 0.7), 0 0 25px rgba(140, 30, 255, 0.5);
+            text-shadow: 0 0 8px rgba(140, 30, 255, 0.4),
+                         0 0 15px rgba(140, 30, 255, 0.3),
+                         0 0 25px rgba(140, 30, 255, 0.2);
         }
 
         .form-title span {
-            text-shadow: 0 0 20px rgba(207, 0, 96, 0.7), 0 0 25px rgba(207, 0, 96, 0.5);
+            text-shadow: 0 0 8px rgba(207, 0, 96, 0.4),
+                         0 0 15px rgba(207, 0, 96, 0.3),
+                         0 0 25px rgba(207, 0, 96, 0.2);
         }
     }
 }
