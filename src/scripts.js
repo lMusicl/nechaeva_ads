@@ -6,8 +6,9 @@ jQuery(document).ready(function ($) {
         slidesPerView: 2,
         speed: 2000,
         autoplay: {
-            delay: 1000,
+            delay: 2000,
             disableOnInteraction: false,
+            pauseOnMouseEnter: true,
         },
         navigation: {
             nextEl: '.swiper-button-next',
