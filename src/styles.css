@@ -344,7 +344,7 @@ section.about .container {
 .about-content {
     display: flex;
     justify-content: space-between;
-    gap: 45px;
+    gap: 65px;
     width: 100%;
 }
 
@@ -352,7 +352,7 @@ section.about .container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-width: 695px;
+    max-width: 655px;
     width: 100%;
     flex-shrink: 0;
 }
