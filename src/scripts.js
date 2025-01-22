@@ -19,6 +19,7 @@ jQuery(document).ready(function ($) {
     // Лайтбокс функционал
     const lightbox = $('.lightbox');
     const lightboxImg = $('.lightbox img');
+    const notification = $('.notification');
 
     // Открытие лайтбокса при клике на слайд
     $('.swiper-slide').click(function () {
@@ -64,11 +65,30 @@ jQuery(document).ready(function ($) {
             dataType: 'json',
             success: function (response) {
                 if (response.success) {
+                    // Очищаем форму
                     $('.form-content-left-form')[0].reset();
+                    notification.find('.notification-text').text('Заявка успешно отправлена!');
+                } else {
+                    notification.find('.notification-text').text(response.message || 'Ошибка отправки формы');
                 }
+                
+                // Показываем уведомление
+                notification.css('display', 'block');
+                
+                // Скрываем уведомление через 3 секунды
+                setTimeout(() => {
+                    notification.css('animation', 'slideOut 0.3s ease-out');
+                    setTimeout(() => {
+                        notification.css({
+                            'display': 'none',
+                            'animation': 'slideIn 0.3s ease-out'
+                        });
+                    }, 300);
+                }, 3000);
             },
             error: function () {
-                console.log('Ошибка отправки формы');
+                notification.find('.notification-text').text('Ошибка отправки формы');
+                notification.css('display', 'block');
             }
         });
     });
