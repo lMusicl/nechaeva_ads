@@ -1177,6 +1177,7 @@ form .form-button:active {
     section.about .background-avatar {
         background-position: -80px 380px;
         background-size: 701px;
+    }
 }
 
 @media screen and (max-width: 1023px) {
@@ -1325,7 +1326,57 @@ form .form-button:active {
         gap: 20px;
     }
 
-    .main-content__button a svg, .about-content__button a svg, .about-content__button-mobile a svg {
+    .main-content__button a svg,
+    .about-content__button a svg,
+    .about-content__button-mobile a svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .about-content__left-items .about-content__left-item:nth-child(1) {
+        order: 2;
+    }
+
+    .about-content__left-items .about-content__left-item:nth-child(2) {
+        order: 3;
+    }
+
+    .about-content__left-items .about-content__left-item:nth-child(3) {
+        order: 5;
+    }
+
+    .about-content__left-items .about-content__left-item:nth-child(4) {
+        order: 1;
+    }
+
+    .about-content__left-items .about-content__left-item:nth-child(5) {
+        order: 4;
+    }
+
+    .about-content__right {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-content__button-mobile {
+        align-self: center;
+    }
+
+    .main-content__button a,
+    .about-content__button a,
+    .about-content__button-mobile a {
+        font-size: 12px;
+    }
+
+    .about-content__left-item {
+        font-size: 26px;
+    }
+
+    .about-content__right-item-title {
+        font-size: 26px;
+    }
+
+    .main-content__list ul li svg {
         width: 14px;
         height: 14px;
     }
@@ -1335,8 +1386,6 @@ form .form-button:active {
     section.main {
         background-size: 135%;
     }
-
-    
 }
 
 @media screen and (max-width: 780px) {
@@ -1344,7 +1393,6 @@ form .form-button:active {
         background-size: 150%;
     }
 }
-
 
 @media screen and (max-width: 767px) {
     .background {
@@ -1400,8 +1448,39 @@ form .form-button:active {
         height: 14px;
     }
 
+    .about-content__left-item .arrow svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .about-content__right-item-list ul {
+        list-style: url(../assets/images/icons/mobile_arrow.svg);
+    }
+
     section.main {
         background-position: center -170px;
+        background-size: 120%;
+    }
+
+    .about-title h2,
+    .about-title span {
+        font-size: 34px;
+    }
+
+    .about-content__left-item {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    section.main {
+        background-size: 130%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    section.main {
+        background-size: 150%;
     }
 }
 
@@ -1414,6 +1493,7 @@ form .form-button:active {
         padding: 0px 15px 0px 15px;
         background-position: -110px -120px;
         background-size: 200%;
+        margin-bottom: 40px;
     }
 
     .main-logo svg {
@@ -1471,21 +1551,63 @@ form .form-button:active {
     }
 
     .main-content__button a,
-    .about-content__button a {
+    .about-content__button a,
+    .about-content__button-mobile a {
         font-size: 16px;
         padding: 10px 40px;
         max-width: 100% !important;
     }
 
-    .main-content__button {
+    .main-content__button,
+    .about-content__button-mobile {
         display: flex;
         justify-content: center;
+        width: 100%;
     }
 
     .main-content__button a svg,
-    .about-content__button a svg {
+    .about-content__button a svg,
+    .about-content__button-mobile a svg {
         width: 16px;
         height: 16px;
+    }
+
+    section.about {
+        margin-top: 0;
+    }
+
+    section.about .container {
+        padding: 20px 15px 0 15px;
+    }
+
+    .about-content__left-item {
+        font-size: 18px;
+    }
+
+    section.about .background-avatar {
+        background-position: -60% 0%;
+    }
+
+    section.about .background-dots {
+        background-size: 80%;
+    }
+
+    .about-content__right-item-title {
+        font-size: 24px;
+    }
+
+    .about-content__right-item-list ul li {
+        font-size: 15px;
+    }
+
+    .about-content__left-item .arrow svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    section.about .background-avatar {
+        background-position: -70px -5%;
+        background-size: 90%;
     }
 }
 
@@ -1499,7 +1621,8 @@ form .form-button:active {
     }
 
     .main-content__button a,
-    .about-content__button a {
+    .about-content__button a,
+    .about-content__button-mobile a {
         width: 100%;
         text-align: center;
     }
@@ -1516,12 +1639,22 @@ form .form-button:active {
         min-width: 110%;
         right: -9%;
     }
+
+    section.about .background-avatar {
+        background-position: -60px -5%;
+        background-size: 93%;
+    }
 }
 
 @media screen and (max-width: 474px) {
     .main-content__image {
         min-width: 115%;
         right: -11%;
+    }
+
+    section.about .background-avatar {
+        background-position: -60px -5%;
+        background-size: 100%;
     }
 }
 
@@ -1534,6 +1667,11 @@ form .form-button:active {
     .main-content__image {
         min-width: 125%;
         right: -16%;
+    }
+
+    section.about .background-avatar {
+        background-position: 150% -3%;
+        background-size: 115%;
     }
 
 }
@@ -1565,7 +1703,8 @@ form .form-button:active {
     }
 
     .main-content__button a,
-    .about-content__button a {
+    .about-content__button a,
+    .about-content__button-mobile a {
         font-size: 14px;
     }
 
@@ -1576,6 +1715,32 @@ form .form-button:active {
     .main-content__image {
         min-width: 140%;
         right: -23%;
+    }
+
+    .about-title h2, .about-title span {
+        font-size: 28px;
+    }
+
+    .about-content__left-item {
+        font-size: 14px;
+    }
+
+    .about-content__left-item {
+        border: 1px solid #fff;
+        padding: 7px 35px 7px 15px;
+    }
+
+    .about-content__left-item .arrow {
+        top: 7px;
+        right: 10px;
+    }
+
+    .about-content__right-item-list ul li {
+        font-size: 12px;
+    }
+
+    .about-content__right-item-title {
+        font-size: 18px;
     }
 }
 
