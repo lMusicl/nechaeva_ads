@@ -897,6 +897,7 @@ form.form-content-left-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
 }
 
 form.form-content-left-form input {
@@ -985,8 +986,14 @@ form .form-button:active {
 
 .form-content-right {
     position: absolute;
-    top: 100px;
+    top: 10%;
     right: -190px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.form-content-right .form-content-image img {
+    max-width: 100%;
 }
 
 /*-------------------------------------------------------- FOOTER ----------------------------------------- */
@@ -1023,7 +1030,6 @@ form .form-button:active {
     color: rgba(255, 255, 255, 0.25);
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
     top: 50%;
     transform: translate(-50%, -50%);
 }
@@ -1034,12 +1040,6 @@ form .form-button:active {
 
 
 @media screen and (max-width: 1439px) {
-
-    .form-bg,
-    .footer {
-        display: none;
-    }
-
     section.main {
         background-position: center -400px;
     }
@@ -1054,6 +1054,13 @@ form .form-button:active {
 
     section.about {
         margin-top: -390px;
+    }
+
+    .form-content-right {
+        position: absolute;
+        top: 16%;
+        right: -190px;
+        width: 67%;
     }
 }
 
@@ -1194,6 +1201,33 @@ form .form-button:active {
     .swiper-button-next {
         width: 45px !important;
         height: 45px !important;
+    }
+
+    .form-content-right {
+        top: 20%;
+        right: -165px;
+        width: 67%;
+    }
+
+    .footer-container {
+        padding: 34px 15px;
+    }
+
+    .form-bg {
+        padding-bottom: 250px;
+    }
+
+    .form-title h2,
+    .form-title span {
+        font-size: 60px;
+    }
+
+    form .form-button {
+        font-size: 14px;
+    }
+
+    .footer-content-top {
+        font-size: 14px;
     }
 }
 
@@ -1344,6 +1378,20 @@ form .form-button:active {
 
     .case-container {
         padding: 0 50px;
+    }
+
+    .form-title h2,
+    .form-title span {
+        font-size: 44px;
+    }
+
+    .form-bg {
+        background-size: 50%;
+        padding-bottom: 150px;
+    }
+
+    form .form-button {
+        font-size: 12px;
     }
 }
 
@@ -1584,6 +1632,52 @@ form .form-button:active {
     .case-title span {
         font-size: 42px;
     }
+
+    .form-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-content-right {
+        position: relative;
+        top: 0;
+        right: 0;
+        order: 1;
+    }
+
+    .form-content-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        order: 2;
+        margin-top: -30px;
+    }
+
+    .form-content {
+        gap: 0;
+    }
+
+    .form-content-left-title {
+        text-align: center;
+    }
+
+    .form-content-right {
+        width: 80%;
+    }
+
+    .form-title {
+        margin-bottom: 0;
+    }
+
+    .form-bg {
+        padding-bottom: 120px;
+        background-size: 75%;
+    }
+
+    .form-title h2,
+    .form-title span {
+        font-size: 42px;
+    }
 }
 
 @media screen and (max-width: 850px) {
@@ -1818,6 +1912,43 @@ form .form-button:active {
         align-items: center;
         max-width: 100%;
     }
+
+    .form-container {
+        padding-top: 60px;
+    }
+
+    .form-content-left-title {
+        font-size: 18px;
+        max-width: 400px;
+        margin-bottom: 20px;
+    }
+
+    .form-bg {
+        padding-bottom: 60px;
+    }
+
+    .form-content-left-title {}
+
+    .form-content-left {
+        margin-top: -25px;
+    }
+
+    .form-title h2,
+    .form-title span {
+        font-size: 34px;
+    }
+
+    form.form-content-left-form input::placeholder {
+        font-size: 15px;
+    }
+
+    form.form-content-left-form input {
+        font-size: 15px;
+    }
+
+    form .form-button {
+        margin-top: 20px;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -1997,7 +2128,8 @@ form .form-button:active {
         padding: 8px 25px 10px 20px;
     }
 
-    .swiper-button-prev, .swiper-button-next {
+    .swiper-button-prev,
+    .swiper-button-next {
         width: 20px !important;
         height: 20px !important;
     }
@@ -2012,6 +2144,36 @@ form .form-button:active {
 
     .case-slider .swiper-slide .swiper-slide-image {
         height: 335px;
+    }
+
+    .form-content-right {
+        width: 100%;
+    }
+
+    .form-content-left-title {
+        font-size: 15px;
+    }
+
+    .form-bg {
+        background-size: 80%;
+    }
+
+    .footer-content-top {
+        font-size: 18px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 15px;
+    }
+
+    .footer-content-logo {
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: translate(0, 0);
     }
 }
 
@@ -2089,6 +2251,24 @@ form .form-button:active {
     .bottom {
         background-size: 200%;
         margin-top: -140px;
+    }
+
+    form.form-content-left-form {
+        max-width: 100%;
+    }
+
+    .form-content-left {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    form .form-button {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .form-content-right {
+        width: 115%;
     }
 }
 
@@ -2294,12 +2474,30 @@ form .form-button:active {
         bottom: 6%;
     }
 
-    .case-title h2, .case-title span {
+    .case-title h2,
+    .case-title span {
         font-size: 28px;
     }
 
     .case-slider .swiper-slide .swiper-slide-image {
         height: 185px;
+    }
+
+    form .form-button {
+        font-size: 14px;
+    }
+
+    .form-bg {
+        background-size: 110%;
+    }
+
+    .form-content-left {
+        margin-top: -20px;
+    }
+
+    .form-title h2,
+    .form-title span {
+        font-size: 28px;
     }
 }
 

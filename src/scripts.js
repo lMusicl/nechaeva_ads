@@ -5,11 +5,11 @@ jQuery(document).ready(function ($) {
         spaceBetween: 30,
         slidesPerView: 2,
         speed: 2000,
-        // autoplay: {
-        //     delay: 2000,
-        //     disableOnInteraction: false,
-        //     pauseOnMouseEnter: true,
-        // },
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
