@@ -40,24 +40,23 @@ if (empty($name) || empty($telegram) || empty($niche)) {
     exit;
 }
 
-// Настройки SMTP
-$to = "your@realemail.com"; // Ваш реальный email для получения заявок
-$subject = "Новая заявка с сайта";
-$message = "Имя: " . $name . "\n";
+// Настройки для отправки
+$to = "support@nechaevatarget.com";
+$subject = "Новая заявка с сайта NechaevaTarget";
+$message = "Получена новая заявка:\n\n";
+$message .= "Имя: " . $name . "\n";
 $message .= "Telegram: " . $telegram . "\n";
 $message .= "Ниша: " . $niche . "\n";
+$message .= "\nДата и время: " . date("Y-m-d H:i:s") . "\n";
 
 // Заголовки письма
+$subject = '=?UTF-8?B?'.base64_encode($subject).'?='; // Кодируем тему письма
 $headers = "MIME-Version: 1.0\r\n";
-$headers .= "Content-type: text/plain; charset=utf-8\r\n";
-$headers .= "From: website@localhost.com\r\n";
-$headers .= "Reply-To: website@localhost.com\r\n";
-
-// Настройки SMTP для Fake SMTP Server
-ini_set("SMTP", "127.0.0.1");
-ini_set("smtp_port", "25");
-// $headers .= "From: noreply@yourdomain.com\r\n"; // Замените на email вашего домена
-// $headers .= "Reply-To: noreply@yourdomain.com\r\n"; // Замените на email вашего домена
+$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$headers .= "Content-Transfer-Encoding: 8bit\r\n";
+$headers .= "From: =?UTF-8?B?".base64_encode("NechaevaTarget")."?= <support@nechaevatarget.com>\r\n";
+$headers .= "Reply-To: support@nechaevatarget.com\r\n";
+$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
 // Отправка письма
 if(mail($to, $subject, $message, $headers)) {

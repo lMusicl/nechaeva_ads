@@ -4,9 +4,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="description"
+        content="Стабильный трафик из Facebook без блокировок на любую нишу. Помогу создать и адаптировать воронку под Ваш проект. Опыт работы с гемблинг, беттинг, крипта, дейтинг, адалт и другими нишами.">
+    <meta name="keywords"
+        content="Facebook реклама, трафик, таргетированная реклама, гемблинг, беттинг, крипта, дейтинг, адалт, воронки продаж">
+    <meta name="author" content="NechaevaADS">
+    <meta property="og:title" content="NechaevaADS - Стабильный трафик из Facebook без блокировок">
+    <meta property="og:description"
+        content="Помогу создать и адаптировать воронку под Ваш проект. Опыт работы с различными нишами, включая гемблинг, беттинг, крипту и другие.">
+    <meta property="og:image" content="./assets/images/Favicon.png">
+    <meta property="og:url" content="https://nechaevatarget.com">
+    <meta name="robots" content="index, follow">
+    <link rel="preload" href="./assets/fonts/DrukCyr-Bold.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="./assets/fonts/DrukCyr-BoldItalic.ttf" as="font" type="font/ttf" crossorigin>
+    <style>
+        @font-face {
+            font-family: "Druk Cyr Bold";
+            src: url("./assets/fonts/DrukCyr-Bold.ttf") format("truetype");
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "Druk Cyr Italic";
+            src: url("./assets/fonts/DrukCyr-BoldItalic.ttf") format("truetype");
+            font-display: swap;
+        }
+
+        /* Критические стили для LCP элементов */
+        .main-content__pre-title {
+            font-family: "Druk Cyr Bold", Arial, sans-serif;
+            font-weight: 700;
+            font-size: 74px;
+            text-transform: uppercase;
+            color: #fff;
+            transform: translateZ(0);
+            will-change: transform;
+            contain: layout style paint;
+            z-index: 15;
+            position: relative;
+        }
+
+        .main-content__title {
+            margin-top: -20px;
+            display: flex;
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        .main-content__title h2,
+        .main-content__title span {
+            font-family: "Druk Cyr Italic", Arial, sans-serif;
+            font-weight: 700;
+            font-size: 100px;
+            text-transform: uppercase;
+            color: #fff;
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        .main-content__title h2 {
+            z-index: 10;
+        }
+
+        .main-content__title span {
+            margin-left: 10px;
+            position: relative;
+            z-index: 1;
+            filter:
+                drop-shadow(0 0 10px rgba(207, 0, 96, 0.8)) drop-shadow(0 0 20px rgba(207, 0, 96, 0.6)) drop-shadow(0 0 40px rgba(207, 0, 96, 0.4)) drop-shadow(0 0 60px rgba(207, 0, 96, 0.2));
+        }
+    </style>
     <link rel="icon" type="image/png" href="./assets/images/Favicon.png" />
     <title>Nechaeva ADS</title>
-    <link rel="stylesheet" href="./src/libs/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./src/libs/swiper-bundle.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="./src/libs/swiper-bundle.min.css">
+    </noscript>
     <link rel="stylesheet" href="./src/libs/animate.min.css">
     <link rel="stylesheet" href="./src/styles.css">
 </head>
@@ -55,11 +128,12 @@
                     </svg>
                 </div>
                 <div class="main-content">
-                    <div class="main-content__pre-title">
-                        Стабильный трафик из Facebook</div>
-                    <div class="main-content__title">
-                        <h2>без блокировок </h2>
-                        <span>на любую нишу</span>
+                    <div class="main-content__pre-title" style="visibility: visible">
+                        СТАБИЛЬНЫЙ ТРАФИК ИЗ FACEBOOK
+                    </div>
+                    <div class="main-content__title" style="visibility: visible">
+                        <h2>БЕЗ БЛОКИРОВОК</h2>
+                        <span>НА ЛЮБУЮ НИШУ</span>
                     </div>
                 </div>
                 <div class="main-content__container">
@@ -127,13 +201,15 @@
                 </div>
                 <p class="main-content__description">
                     Для достижения необходимых результатов помогу создать<br>
-                    и адаптировать воронку конкретно под <span>Ваш проект</span> и залить<br> рекламу с рекламными макетами любой
+                    и адаптировать воронку конкретно под <span>Ваш проект</span> и залить<br> рекламу с рекламными
+                    макетами любой
                     "жесткости"
                     и с любым суточным спендом.
                 </p>
                 <p class="main-content__description-mobile">
                     Для достижения необходимых результатов помогу создать
-                    и адаптировать воронку конкретно под <span>Ваш проект</span> и залить рекламу с рекламными макетами любой
+                    и адаптировать воронку конкретно под <span>Ваш проект</span> и залить рекламу с рекламными макетами
+                    любой
                     "жесткости"
                     и с любым суточным спендом.
                 </p>
@@ -526,7 +602,8 @@
                             <input type="text" name="niche" placeholder="Ниша" required>
                             <!-- Скрытые поля для антиспама -->
                             <input type="hidden" name="timestamp" value="<?php echo time(); ?>">
-                            <input type="text" name="website" style="display:none !important;" tabindex="-1" autocomplete="off">
+                            <input type="text" name="website" style="display:none !important;" tabindex="-1"
+                                autocomplete="off">
                             <button type="submit" class="form-button">Оставить заявку<br> на запуск рекламы</button>
                         </form>
                     </div>

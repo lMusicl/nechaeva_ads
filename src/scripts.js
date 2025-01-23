@@ -14,6 +14,13 @@ jQuery(document).ready(function ($) {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
+        lazy: {
+            loadPrevNext: true, // Загрузка соседних изображений
+            loadPrevNextAmount: 2, // Количество соседних изображений для загрузки
+        },
+        preloadImages: false, // Отключаем предзагрузку
+        watchSlidesProgress: true, // Следим за слайдами
+        watchSlidesVisibility: true, // Следим за видимостью слайдов
         breakpoints: {
             320: {
                 slidesPerView: 1,
@@ -79,10 +86,10 @@ jQuery(document).ready(function ($) {
                 } else {
                     notification.find('.notification-text').text(response.message || 'Ошибка отправки формы');
                 }
-                
+
                 // Показываем уведомление
                 notification.css('display', 'block');
-                
+
                 // Скрываем уведомление через 3 секунды
                 setTimeout(() => {
                     notification.css('animation', 'slideOut 0.3s ease-out');
@@ -99,5 +106,16 @@ jQuery(document).ready(function ($) {
                 notification.css('display', 'block');
             }
         });
+    });
+
+    // Предзагрузка изображений и оптимизация LCP элементов
+    const preloadImage = new Image();
+    preloadImage.src = './assets/images/pink_splash.png';
+    
+    $('.main-content__pre-title, .main-content__title').each(function() {
+        if ('loading' in HTMLImageElement.prototype) {
+            $(this).prop('loading', 'eager');
+        }
+        $(this).css('visibility', 'visible');
     });
 });

@@ -80,47 +80,6 @@ section.main .container {
     max-height: 123px;
 }
 
-.main-content__pre-title {
-    font-family: "Druk Cyr Bold";
-    font-weight: 700;
-    font-size: 74px;
-    text-transform: uppercase;
-    color: #fff;
-    z-index: 15;
-    position: relative;
-}
-
-.main-content__title {
-    margin-top: -20px;
-    display: flex;
-}
-
-
-.main-content__title h2 {
-    font-family: "Druk Cyr Italic";
-    font-weight: 700;
-    font-size: 100px;
-    text-transform: uppercase;
-    color: #fff;
-    z-index: 10;
-}
-
-.main-content__title span {
-    font-family: "Druk Cyr Italic";
-    /* font-style: italic; */
-    font-weight: 700;
-    font-size: 100px;
-    text-transform: uppercase;
-    color: #fff;
-    /* text-shadow: 0 0 40px #CF0060, 0 0 40px #CF0060; */
-    filter:
-        drop-shadow(0 0 10px rgba(207, 0, 96, 0.8)) drop-shadow(0 0 20px rgba(207, 0, 96, 0.6)) drop-shadow(0 0 40px rgba(207, 0, 96, 0.4)) drop-shadow(0 0 60px rgba(207, 0, 96, 0.2));
-    z-index: 1;
-    margin-left: 10px;
-    position: relative;
-}
-
-
 .main-content__container {
     display: flex;
     column-gap: 20px;
@@ -1926,8 +1885,6 @@ form .form-button:active {
     .form-bg {
         padding-bottom: 60px;
     }
-
-    .form-content-left-title {}
 
     .form-content-left {
         margin-top: -25px;

@@ -1,0 +1,33 @@
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /src/
+Disallow: /src/libs/
+Disallow: /*.php$
+
+Sitemap: https://nechaevatarget.com/sitemap.xml
+
+# Правила для основных поисковых систем
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
+
+User-agent: Mail.Ru
+Allow: /
+Crawl-delay: 1
+
+# Запрет на индексацию служебных файлов
+Disallow: /cgi-bin/
+Disallow: /*.json$
+Disallow: /*.txt$
+Disallow: /maintenance.html
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /.htaccess
+Disallow: /error_log
+Disallow: /cgi-bin/
+Disallow: /*?* 
