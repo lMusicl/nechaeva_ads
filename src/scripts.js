@@ -96,7 +96,10 @@ jQuery(document).ready(function ($) {
 
     // Функция для назначения обработчиков событий
     function attachTouchEvents() {
+        const imageWrapper = $('.lightbox-image-wrapper');
+        
         lightboxImg.on('touchstart', function(e) {
+            e.stopPropagation(); // Предотвращаем всплытие события
             if (e.touches.length === 2) {
                 e.preventDefault();
                 startDistance = Math.hypot(
@@ -111,6 +114,7 @@ jQuery(document).ready(function ($) {
         });
 
         lightboxImg.on('touchmove', function(e) {
+            e.stopPropagation();
             if (e.touches.length === 2) {
                 e.preventDefault();
                 const currentDistance = Math.hypot(
@@ -122,15 +126,13 @@ jQuery(document).ready(function ($) {
                     const scale = (currentDistance / startDistance) * currentScale;
                     const limitedScale = Math.min(Math.max(1, scale), 4);
                     
-                    // Если новый масштаб меньше текущего, возвращаем в центр
                     if (limitedScale < currentScale) {
                         translateX = 0;
                         translateY = 0;
                     }
                     
-                    $(this).css('transform', `translate(${translateX}px, ${translateY}px) scale(${limitedScale})`);
-                    
-                    // Обновляем текущий масштаб сразу
+                    // Используем transform3d для лучшей производительности на iOS
+                    $(this).css('transform', `translate3d(${translateX}px, ${translateY}px, 0) scale(${limitedScale})`);
                     currentScale = limitedScale;
                 }
             } else if (e.touches.length === 1 && isDragging && currentScale > 1) {
@@ -143,11 +145,13 @@ jQuery(document).ready(function ($) {
                 translateX = Math.min(Math.max(-maxTranslate, translateX), maxTranslate);
                 translateY = Math.min(Math.max(-maxTranslate, translateY), maxTranslate);
                 
-                $(this).css('transform', `translate(${translateX}px, ${translateY}px) scale(${currentScale})`);
+                // Используем transform3d для iOS
+                $(this).css('transform', `translate3d(${translateX}px, ${translateY}px, 0) scale(${currentScale})`);
             }
         });
 
         lightboxImg.on('touchend', function(e) {
+            e.stopPropagation();
             if (e.touches.length < 2) {
                 isDragging = false;
                 startDistance = 0;
@@ -156,8 +160,17 @@ jQuery(document).ready(function ($) {
                     currentScale = 1;
                     translateX = 0;
                     translateY = 0;
-                    $(this).css('transform', 'translate(0, 0) scale(1)');
+                    $(this).css('transform', 'translate3d(0, 0, 0) scale(1)');
                 }
+            }
+        });
+
+        // Добавляем обработчик для клика по обертке изображения
+        imageWrapper.on('click', function(e) {
+            // Если клик был по обертке, а не по изображению
+            if (e.target === this) {
+                lightbox.fadeOut(300);
+                resetLightboxZoom();
             }
         });
     }
@@ -167,20 +180,15 @@ jQuery(document).ready(function ($) {
         const bgImage = $(this).find('.swiper-slide-image').css('background-image');
         const imageUrl = bgImage.replace(/url\(['"](.+)['"]\)/, '$1');
         
-        // Очищаем и пересоздаем структуру лайтбокса
         lightbox.empty().append(`
             <div class="lightbox-close"></div>
             <div class="lightbox-image-wrapper">
-                <img src="${imageUrl}" alt="Fullscreen Image">
+                <img src="${imageUrl}" alt="Fullscreen Image" style="transform: translate3d(0, 0, 0) scale(1)">
             </div>
         `);
         
-        // Обновляем ссылку на изображение
         lightboxImg = $('.lightbox img');
-        
-        // Переназначаем обработчики событий для нового изображения
         attachTouchEvents();
-        
         lightbox.fadeIn(300);
     });
 
