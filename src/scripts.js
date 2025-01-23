@@ -89,21 +89,21 @@ jQuery(document).ready(function ($) {
     // Сброс масштаба при закрытии лайтбокса
     function resetLightboxZoom() {
         currentScale = 1;
-        lightboxImg.css('transform', 'scale(1)');
+        translateX = 0;
+        translateY = 0;
+        lightboxImg.css('transform', 'translate(0, 0) scale(1)');
     }
 
     // Функция для назначения обработчиков событий
     function attachTouchEvents() {
         lightboxImg.on('touchstart', function(e) {
             if (e.touches.length === 2) {
-                // Зум с двумя пальцами
                 e.preventDefault();
                 startDistance = Math.hypot(
                     e.touches[0].pageX - e.touches[1].pageX,
                     e.touches[0].pageY - e.touches[1].pageY
                 );
             } else if (e.touches.length === 1 && currentScale > 1) {
-                // Перемещение одним пальцем при увеличенном масштабе
                 isDragging = true;
                 startX = e.touches[0].pageX - translateX;
                 startY = e.touches[0].pageY - translateY;
@@ -112,7 +112,6 @@ jQuery(document).ready(function ($) {
 
         lightboxImg.on('touchmove', function(e) {
             if (e.touches.length === 2) {
-                // Зум с двумя пальцами
                 e.preventDefault();
                 const currentDistance = Math.hypot(
                     e.touches[0].pageX - e.touches[1].pageX,
@@ -123,10 +122,15 @@ jQuery(document).ready(function ($) {
                     const scale = (currentDistance / startDistance) * currentScale;
                     const limitedScale = Math.min(Math.max(1, scale), 4);
                     
+                    // Если масштаб становится 1, сбрасываем позицию
+                    if (limitedScale === 1) {
+                        translateX = 0;
+                        translateY = 0;
+                    }
+                    
                     $(this).css('transform', `translate(${translateX}px, ${translateY}px) scale(${limitedScale})`);
                 }
             } else if (e.touches.length === 1 && isDragging && currentScale > 1) {
-                // Перемещение одним пальцем
                 e.preventDefault();
                 const maxTranslate = (currentScale - 1) * $(this).width() / 2;
                 
@@ -144,15 +148,19 @@ jQuery(document).ready(function ($) {
         lightboxImg.on('touchend', function(e) {
             if (e.touches.length < 2) {
                 isDragging = false;
-                if (currentScale === 1) {
-                    // Сбрасываем позицию при масштабе 1
-                    translateX = 0;
-                    translateY = 0;
-                }
                 startDistance = 0;
+                
                 // Сохраняем текущий масштаб
                 const matrix = new WebKitCSSMatrix($(this).css('transform'));
                 currentScale = matrix.a;
+                
+                // Если масштаб стал 1, сбрасываем позицию
+                if (currentScale <= 1) {
+                    currentScale = 1;
+                    translateX = 0;
+                    translateY = 0;
+                    $(this).css('transform', 'translate(0, 0) scale(1)');
+                }
             }
         });
     }
