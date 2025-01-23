@@ -749,8 +749,9 @@ section.experience .container {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    /* Добавляем поддержку жестов на iOS */
     -webkit-overflow-scrolling: touch;
+    -webkit-transform: translateZ(0);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .lightbox img {
@@ -762,15 +763,13 @@ section.experience .container {
     touch-action: none;
     -webkit-user-select: none;
     user-select: none;
-    transition: transform 0.1s ease-out;
     transform-origin: center center;
-    /* Включаем аппаратное ускорение */
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    -webkit-perspective: 1000;
-    perspective: 1000;
+    will-change: transform;
+    transition: none;
 }
 
 .lightbox-close {

@@ -99,7 +99,7 @@ jQuery(document).ready(function ($) {
         const imageWrapper = $('.lightbox-image-wrapper');
         
         lightboxImg.on('touchstart', function(e) {
-            e.stopPropagation(); // Предотвращаем всплытие события
+            e.stopPropagation();
             if (e.touches.length === 2) {
                 e.preventDefault();
                 startDistance = Math.hypot(
@@ -110,6 +110,8 @@ jQuery(document).ready(function ($) {
                 isDragging = true;
                 startX = e.touches[0].pageX - translateX;
                 startY = e.touches[0].pageY - translateY;
+                // Добавляем класс для активного перетаскивания
+                $(this).addClass('dragging');
             }
         });
 
@@ -131,8 +133,12 @@ jQuery(document).ready(function ($) {
                         translateY = 0;
                     }
                     
-                    // Используем transform3d для лучшей производительности на iOS
-                    $(this).css('transform', `translate3d(${translateX}px, ${translateY}px, 0) scale(${limitedScale})`);
+                    requestAnimationFrame(() => {
+                        $(this).css({
+                            '-webkit-transform': `translate3d(${translateX}px, ${translateY}px, 0) scale(${limitedScale})`,
+                            'transform': `translate3d(${translateX}px, ${translateY}px, 0) scale(${limitedScale})`
+                        });
+                    });
                     currentScale = limitedScale;
                 }
             } else if (e.touches.length === 1 && isDragging && currentScale > 1) {
@@ -145,8 +151,12 @@ jQuery(document).ready(function ($) {
                 translateX = Math.min(Math.max(-maxTranslate, translateX), maxTranslate);
                 translateY = Math.min(Math.max(-maxTranslate, translateY), maxTranslate);
                 
-                // Используем transform3d для iOS
-                $(this).css('transform', `translate3d(${translateX}px, ${translateY}px, 0) scale(${currentScale})`);
+                requestAnimationFrame(() => {
+                    $(this).css({
+                        '-webkit-transform': `translate3d(${translateX}px, ${translateY}px, 0) scale(${currentScale})`,
+                        'transform': `translate3d(${translateX}px, ${translateY}px, 0) scale(${currentScale})`
+                    });
+                });
             }
         });
 
@@ -155,12 +165,19 @@ jQuery(document).ready(function ($) {
             if (e.touches.length < 2) {
                 isDragging = false;
                 startDistance = 0;
+                // Удаляем класс активного перетаскивания
+                $(this).removeClass('dragging');
                 
                 if (currentScale <= 1) {
                     currentScale = 1;
                     translateX = 0;
                     translateY = 0;
-                    $(this).css('transform', 'translate3d(0, 0, 0) scale(1)');
+                    requestAnimationFrame(() => {
+                        $(this).css({
+                            '-webkit-transform': 'translate3d(0, 0, 0) scale(1)',
+                            'transform': 'translate3d(0, 0, 0) scale(1)'
+                        });
+                    });
                 }
             }
         });
