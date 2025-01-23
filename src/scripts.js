@@ -122,13 +122,16 @@ jQuery(document).ready(function ($) {
                     const scale = (currentDistance / startDistance) * currentScale;
                     const limitedScale = Math.min(Math.max(1, scale), 4);
                     
-                    // Если масштаб становится 1, сбрасываем позицию
-                    if (limitedScale === 1) {
+                    // Если новый масштаб меньше текущего, возвращаем в центр
+                    if (limitedScale < currentScale) {
                         translateX = 0;
                         translateY = 0;
                     }
                     
                     $(this).css('transform', `translate(${translateX}px, ${translateY}px) scale(${limitedScale})`);
+                    
+                    // Обновляем текущий масштаб сразу
+                    currentScale = limitedScale;
                 }
             } else if (e.touches.length === 1 && isDragging && currentScale > 1) {
                 e.preventDefault();
@@ -137,7 +140,6 @@ jQuery(document).ready(function ($) {
                 translateX = e.touches[0].pageX - startX;
                 translateY = e.touches[0].pageY - startY;
                 
-                // Ограничиваем перемещение
                 translateX = Math.min(Math.max(-maxTranslate, translateX), maxTranslate);
                 translateY = Math.min(Math.max(-maxTranslate, translateY), maxTranslate);
                 
@@ -150,11 +152,6 @@ jQuery(document).ready(function ($) {
                 isDragging = false;
                 startDistance = 0;
                 
-                // Сохраняем текущий масштаб
-                const matrix = new WebKitCSSMatrix($(this).css('transform'));
-                currentScale = matrix.a;
-                
-                // Если масштаб стал 1, сбрасываем позицию
                 if (currentScale <= 1) {
                     currentScale = 1;
                     translateX = 0;
