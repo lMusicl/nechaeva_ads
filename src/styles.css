@@ -1034,8 +1034,6 @@ form .form-button:active {
 
 
 @media screen and (max-width: 1439px) {
-
-    .experience,
     .bottom,
     .footer {
         display: none;
@@ -1143,6 +1141,23 @@ form .form-button:active {
     .about-content__left-item {
         font-size: 30px;
     }
+
+    .experience .container {
+        padding: 0 15px;
+    }
+
+    .experience-title h2,
+    .experience-title span {
+        font-size: 60px;
+    }
+
+    .experience-item:nth-child(3) {
+        right: 30px;
+    }
+
+    .experience-item:nth-child(2) {
+        left: 45%;
+    }
 }
 
 @media screen and (max-width: 1200px) {
@@ -1229,6 +1244,39 @@ form .form-button:active {
 
     section.main {
         background-size: 135%;
+    }
+
+    .experience-item:first-child .experience-item-title {
+        font-size: 84px;
+    }
+    
+    .experience-item:nth-child(2) .experience-item-title {
+        font-size: 114px;
+    }
+    
+    .experience-item:nth-child(3) .experience-item-title {
+        font-size: 64px;
+    }
+    
+    .experience-item:nth-child(4) .experience-item-title {
+        font-size: 114px;
+    }
+    
+    .experience-item:nth-child(5) .experience-item-title {
+        font-size: 84px;
+    }
+    
+    .experience-item:nth-child(6) .experience-item-title {
+        font-size: 64px;
+    }
+
+    .experience-title h2, .experience-title span {
+        font-size: 44px;
+    }
+
+    .experience-item:nth-child(2) {
+        left: 48%;
+        top: 50px;
     }
 }
 
@@ -1380,6 +1428,66 @@ form .form-button:active {
         width: 14px;
         height: 14px;
     }
+
+    .experience-title {
+        margin-bottom: 20px;
+    }
+
+    .experience-item:first-child {
+        left: 0;
+    }
+
+    section.experience .container {
+        padding: 60px 15px 0 15px;
+    }
+
+    section.experience {
+        margin-top: 0;
+    }
+
+    .experience-items {
+        height: 1000px;
+    }
+
+    .experience-item:first-child {
+        left: 6%;
+    }
+
+    .experience-item:nth-child(2) {
+        top: 15%;
+        left: 43%;
+    }
+
+    .experience-item:nth-child(3) {
+        right: auto;
+        left: 7%;
+        top: 40%;
+    }
+
+    .experience-item:nth-child(4) {
+        left: auto;
+        right: 5%;
+    }
+
+    .experience-item:nth-child(4) .experience-item-image {
+        top: -200px;
+        left: 40px;
+        width: 100%;
+    }
+    
+    .experience-item:nth-child(5) {
+        left: 0;
+        top: 65%;
+    }
+
+    .experience-item:nth-child(6) {
+        bottom: 3%;
+        top: auto;
+    }
+
+    .experience-title h2, .experience-title span {
+        font-size: 42px;
+    }
 }
 
 @media screen and (max-width: 850px) {
@@ -1469,6 +1577,122 @@ form .form-button:active {
 
     .about-content__left-item {
         font-size: 20px;
+    }
+
+    .experience-title h2, .experience-title span {
+        font-size: 34px;
+    }
+
+    .experience-item:first-child {
+        left: 6%;
+        width: 190px;
+        height: 160px;
+    }
+
+    .experience-item:nth-child(2) {
+        top: 15%;
+        left: 43%;
+        width: 242px;
+        height: 160px;
+    }
+
+    .experience-item:nth-child(3) {
+        right: auto;
+        left: 7%;
+        top: 35%;
+        width: 182px;
+        height: 160px;
+    }
+
+    .experience-item:nth-child(4) {
+        left: auto;
+        right: 10%;
+        width: 136px;
+        height: 160px;
+    }
+
+    
+    .experience-item:nth-child(5) {
+        left: 10%;
+        top: 65%;
+        width: 227px;
+        height: 160px;
+    }
+
+    .experience-item:nth-child(6) {
+        bottom: 3%;
+        top: auto;
+        width: 190px;
+        height: 160px;
+    }
+
+    .experience-item:first-child .experience-item-title {
+        font-size: 60px;
+    }
+    
+    .experience-item:nth-child(2) .experience-item-title {
+        font-size: 80px;
+    }
+    
+    .experience-item:nth-child(3) .experience-item-title {
+        font-size: 59px;
+    }
+    
+    .experience-item:nth-child(4) .experience-item-title {
+        font-size: 49px;
+    }
+    
+    .experience-item:nth-child(5) .experience-item-title {
+        font-size: 59px;
+    }
+    
+    .experience-item:nth-child(6) .experience-item-title {
+        font-size: 52px;
+    }
+
+    .experience-item:first-child .experience-item-image {
+        top: -110px;
+        left: -86px;
+        width: 135%;
+    }
+
+    .experience-item:nth-child(2) .experience-item-image {
+        top: -99px;
+        width: 100%;
+        left: 87px;
+    }
+
+    .experience-item:nth-child(3) .experience-item-image {
+        width: 160%;
+        top: -102px;
+        left: 8px;
+    }
+
+    .experience-item:nth-child(4) .experience-item-image {
+        top: -115px;
+        left: -25px;
+        width: 140%;
+    }
+
+    .experience-item:nth-child(5) .experience-item-image {
+        top: -110px;
+        left: 0;
+        width: 180%;
+    }
+
+    .experience-item:nth-child(6) .experience-item-image {
+        top: -146px;
+        right: 25px;
+        width: 160%;
+    }
+
+    .experience-items {
+        height: 720px;
+    }
+
+    section.experience {
+        background-size: 150%;
+        background-position: left -30%;
     }
 }
 
@@ -1609,6 +1833,10 @@ form .form-button:active {
         background-position: -70px -5%;
         background-size: 90%;
     }
+
+    section.experience {
+        background-size: 180%;
+    }
 }
 
 @media screen and (max-width: 499px) {
@@ -1644,6 +1872,35 @@ form .form-button:active {
         background-position: -60px -5%;
         background-size: 93%;
     }
+
+    .experience-item:first-child {
+        left: 0;
+    }
+
+    .experience-item:nth-child(2) {
+        top: 15%;
+        left: auto;
+        right: 0;
+    }
+
+    .experience-item:nth-child(3) {
+        left: 0;
+        top: 35%;
+    }
+
+    .experience-item:nth-child(4) {
+        right: 0;
+    }
+
+    
+    .experience-item:nth-child(5) {
+        left: 0;
+        top: 60%;
+    }
+
+    .experience-item:nth-child(6) {
+        bottom: 3%;
+    }
 }
 
 @media screen and (max-width: 474px) {
@@ -1655,6 +1912,10 @@ form .form-button:active {
     section.about .background-avatar {
         background-position: -60px -5%;
         background-size: 100%;
+    }
+
+    section.experience {
+        background-position: left -20%;
     }
 }
 
@@ -1674,6 +1935,9 @@ form .form-button:active {
         background-size: 115%;
     }
 
+    section.experience {
+        background-position: left -15%;
+    }
 }
 
 @media screen and (max-width: 374px) {
@@ -1741,6 +2005,97 @@ form .form-button:active {
 
     .about-content__right-item-title {
         font-size: 18px;
+    }
+
+    .experience-item:first-child .experience-item-image {
+        top: -90px;
+        left: -75px;
+        width: 135%;
+    }
+
+    .experience-item:first-child .experience-item-title {
+        font-size: 50px;
+    }
+    
+    .experience-item:nth-child(2) .experience-item-title {
+        font-size: 70px;
+    }
+    
+    .experience-item:nth-child(3) .experience-item-title {
+        font-size: 59px;
+    }
+    
+    .experience-item:nth-child(4) .experience-item-title {
+        font-size: 39px;
+    }
+    
+    .experience-item:nth-child(5) .experience-item-title {
+        font-size: 49px;
+    }
+    
+    .experience-item:nth-child(6) .experience-item-title {
+        font-size: 42px;
+    }
+
+    .experience-item:first-child {
+        left: 0%;
+        width: 165px;
+        height: 140px;
+    }
+
+    .experience-item:nth-child(2) .experience-item-image {
+        top: -85px;
+        width: 100%;
+        left: 80px;
+    }
+
+    .experience-item:nth-child(2) {
+        width: 220px;
+        top: 10%;
+    }
+
+    .experience-item:nth-child(3) {
+        left: 0;
+        top: 33%;
+    }
+
+    .experience-item:nth-child(4) {
+        width: 100px;
+        top: 300px;
+    }
+
+    .experience-item:nth-child(4) .experience-item-image {
+        top: -90px;
+        left: -22px;
+        width: 140%;
+    }
+
+    .experience-item:nth-child(5) {
+        width: 125px;
+    }
+
+    .experience-item:nth-child(5) .experience-item-image {
+        top: -90px;
+        left: 0;
+        width: 180%;
+    }
+
+    .experience-item:nth-child(5) {
+        top: 56%;
+    }
+
+    .experience-items {
+        height: 650px;
+    }
+
+    .experience-item:nth-child(6) .experience-item-image {
+        top: -116px;
+        right: 20px;
+        width: 160%;
+    }
+
+    .experience-item:nth-child(6) {
+        bottom: 6%;
     }
 }
 
