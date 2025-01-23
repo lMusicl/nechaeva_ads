@@ -33,7 +33,7 @@ jQuery(document).ready(function ($) {
 
     // Лайтбокс функционал
     const lightbox = $('.lightbox');
-    const lightboxImg = $('.lightbox img');
+    let lightboxImg = $('.lightbox img');
     const notification = $('.notification');
 
     // Добавляем поддержку масштабирования для мобильных устройств
@@ -55,19 +55,16 @@ jQuery(document).ready(function ($) {
         if (e.touches.length === 2) {
             e.preventDefault();
             
-            // Вычисляем текущее расстояние между пальцами
             const currentDistance = Math.hypot(
                 e.touches[0].pageX - e.touches[1].pageX,
                 e.touches[0].pageY - e.touches[1].pageY
             );
             
-            // Вычисляем новый масштаб
             if (startDistance > 0) {
                 const scale = (currentDistance / startDistance) * currentScale;
-                // Ограничиваем масштаб от 1 до 4
                 const limitedScale = Math.min(Math.max(1, scale), 4);
                 
-                // Применяем трансформацию
+                // Применяем только scale, без translate
                 $(this).css('transform', `scale(${limitedScale})`);
             }
         }
@@ -88,12 +85,66 @@ jQuery(document).ready(function ($) {
         lightboxImg.css('transform', 'scale(1)');
     }
 
+    // Функция для назначения обработчиков событий
+    function attachTouchEvents() {
+        lightboxImg.on('touchstart', function(e) {
+            if (e.touches.length === 2) {
+                e.preventDefault();
+                startDistance = Math.hypot(
+                    e.touches[0].pageX - e.touches[1].pageX,
+                    e.touches[0].pageY - e.touches[1].pageY
+                );
+            }
+        });
+
+        lightboxImg.on('touchmove', function(e) {
+            if (e.touches.length === 2) {
+                e.preventDefault();
+                
+                const currentDistance = Math.hypot(
+                    e.touches[0].pageX - e.touches[1].pageX,
+                    e.touches[0].pageY - e.touches[1].pageY
+                );
+                
+                if (startDistance > 0) {
+                    const scale = (currentDistance / startDistance) * currentScale;
+                    const limitedScale = Math.min(Math.max(1, scale), 4);
+                    
+                    // Применяем только scale, без translate
+                    $(this).css('transform', `scale(${limitedScale})`);
+                }
+            }
+        });
+
+        lightboxImg.on('touchend', function(e) {
+            if (e.touches.length < 2) {
+                startDistance = 0;
+                // Сохраняем текущий масштаб
+                const matrix = new WebKitCSSMatrix($(this).css('transform'));
+                currentScale = matrix.a;
+            }
+        });
+    }
+
     // Открытие лайтбокса при клике на слайд
     $('.swiper-slide').click(function () {
         const bgImage = $(this).find('.swiper-slide-image').css('background-image');
         const imageUrl = bgImage.replace(/url\(['"](.+)['"]\)/, '$1');
-        lightboxImg.attr('src', imageUrl);
-        resetLightboxZoom(); // Сбрасываем масштаб
+        
+        // Очищаем и пересоздаем структуру лайтбокса
+        lightbox.empty().append(`
+            <div class="lightbox-close"></div>
+            <div class="lightbox-image-wrapper">
+                <img src="${imageUrl}" alt="Fullscreen Image">
+            </div>
+        `);
+        
+        // Обновляем ссылку на изображение
+        lightboxImg = $('.lightbox img');
+        
+        // Переназначаем обработчики событий для нового изображения
+        attachTouchEvents();
+        
         lightbox.fadeIn(300);
     });
 
