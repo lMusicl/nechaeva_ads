@@ -1837,6 +1837,11 @@ form .form-button:active {
     section.experience {
         background-size: 180%;
     }
+
+    .main-content__image {
+        min-width: 90%;
+        right: 4%;
+    }
 }
 
 @media screen and (max-width: 499px) {
@@ -1865,7 +1870,7 @@ form .form-button:active {
 
     .main-content__image {
         min-width: 110%;
-        right: -9%;
+        right: -7%;
     }
 
     section.about .background-avatar {
@@ -1906,7 +1911,7 @@ form .form-button:active {
 @media screen and (max-width: 474px) {
     .main-content__image {
         min-width: 115%;
-        right: -11%;
+        right: -9%;
     }
 
     section.about .background-avatar {
@@ -1927,7 +1932,7 @@ form .form-button:active {
 
     .main-content__image {
         min-width: 125%;
-        right: -16%;
+        right: -15%;
     }
 
     section.about .background-avatar {
