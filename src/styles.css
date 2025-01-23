@@ -1,12 +1,3 @@
-@font-face {
-    font-family: "Druk Cyr Bold";
-    src: url("../assets/fonts/DrukCyr-Bold.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: "Druk Cyr Italic";
-    src: url("../assets/fonts/DrukCyr-BoldItalic.ttf") format("truetype");
-}
 
 @font-face {
     font-family: "OpenSans Regular";
@@ -141,12 +132,10 @@ section.main .container {
 
 .main-content__list ul li span {
     font-family: "OpenSans Italic", sans-serif;
-    /* font-style: italic; */
 }
 
 .main-content__list-mobile ul li span {
     font-family: "OpenSans Italic", sans-serif;
-    /* font-style: italic; */
 }
 
 
@@ -223,7 +212,8 @@ section.main .container {
         drop-shadow(0 0 10px rgba(207, 0, 96, 0.8)) drop-shadow(0 0 20px rgba(207, 0, 96, 0.6)) drop-shadow(0 0 40px rgba(207, 0, 96, 0.4)) drop-shadow(0 0 60px rgba(207, 0, 96, 0.2));
 }
 
-.about-content__button a:hover {
+.about-content__button a:hover,
+.about-content__button-mobile a:hover {
     /* box-shadow: 0 0 55px 10px #8b1eff; */
     /* text-shadow: 0 0 40px #8b1eff56, 0 0 40px #8b1eff5e; */
     filter:
@@ -757,10 +747,15 @@ section.experience .container {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
+    transform-origin: center;
     object-fit: contain;
     width: auto;
     height: auto;
+    touch-action: none; /* Отключаем стандартные жесты браузера */
+    -webkit-user-select: none; /* Отключаем выделение на iOS */
+    user-select: none;
+    transition: transform 0.1s ease-out;
 }
 
 .lightbox-close {
@@ -1181,7 +1176,7 @@ form .form-button:active {
         font-size: 60px;
     }
 
-    form .form-button {
+    .form-button {
         font-size: 14px;
     }
 

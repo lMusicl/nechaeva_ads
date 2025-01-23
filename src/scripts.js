@@ -36,11 +36,64 @@ jQuery(document).ready(function ($) {
     const lightboxImg = $('.lightbox img');
     const notification = $('.notification');
 
+    // Добавляем поддержку масштабирования для мобильных устройств
+    let currentScale = 1;
+    let startDistance = 0;
+    
+    // Предотвращаем стандартный зум браузера
+    lightboxImg.on('touchstart', function(e) {
+        if (e.touches.length === 2) {
+            e.preventDefault();
+            startDistance = Math.hypot(
+                e.touches[0].pageX - e.touches[1].pageX,
+                e.touches[0].pageY - e.touches[1].pageY
+            );
+        }
+    });
+
+    lightboxImg.on('touchmove', function(e) {
+        if (e.touches.length === 2) {
+            e.preventDefault();
+            
+            // Вычисляем текущее расстояние между пальцами
+            const currentDistance = Math.hypot(
+                e.touches[0].pageX - e.touches[1].pageX,
+                e.touches[0].pageY - e.touches[1].pageY
+            );
+            
+            // Вычисляем новый масштаб
+            if (startDistance > 0) {
+                const scale = (currentDistance / startDistance) * currentScale;
+                // Ограничиваем масштаб от 1 до 4
+                const limitedScale = Math.min(Math.max(1, scale), 4);
+                
+                // Применяем трансформацию
+                $(this).css('transform', `scale(${limitedScale})`);
+            }
+        }
+    });
+
+    lightboxImg.on('touchend', function(e) {
+        if (e.touches.length < 2) {
+            startDistance = 0;
+            // Сохраняем текущий масштаб
+            const matrix = new WebKitCSSMatrix($(this).css('transform'));
+            currentScale = matrix.a;
+        }
+    });
+
+    // Сброс масштаба при закрытии лайтбокса
+    function resetLightboxZoom() {
+        currentScale = 1;
+        lightboxImg.css('transform', 'scale(1)');
+    }
+
     // Открытие лайтбокса при клике на слайд
     $('.swiper-slide').click(function () {
         const bgImage = $(this).find('.swiper-slide-image').css('background-image');
         const imageUrl = bgImage.replace(/url\(['"](.+)['"]\)/, '$1');
         lightboxImg.attr('src', imageUrl);
+        resetLightboxZoom(); // Сбрасываем масштаб
         lightbox.fadeIn(300);
     });
 
@@ -48,6 +101,7 @@ jQuery(document).ready(function ($) {
     lightbox.click(function (e) {
         if ($(e.target).hasClass('lightbox') || $(e.target).hasClass('lightbox-close')) {
             lightbox.fadeOut(300);
+            resetLightboxZoom(); // Сбрасываем масштаб
         }
     });
 
@@ -55,6 +109,7 @@ jQuery(document).ready(function ($) {
     $(document).keydown(function (e) {
         if (e.key === "Escape") {
             lightbox.fadeOut(300);
+            resetLightboxZoom(); // Сбрасываем масштаб
         }
     });
 
