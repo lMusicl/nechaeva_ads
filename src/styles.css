@@ -739,14 +739,21 @@ section.experience .container {
     cursor: pointer;
 }
 
+.lightbox-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
 .lightbox img {
     max-width: 95%;
     max-height: 95vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transform-origin: center;
     object-fit: contain;
     width: auto;
     height: auto;
@@ -754,19 +761,7 @@ section.experience .container {
     -webkit-user-select: none;
     user-select: none;
     transition: transform 0.1s ease-out;
-}
-
-/* Добавляем обертку для изображения */
-.lightbox-image-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transform-origin: center center;
 }
 
 .lightbox-close {
@@ -776,6 +771,7 @@ section.experience .container {
     width: 18px;
     height: 18px;
     cursor: pointer;
+    z-index: 99;
 }
 
 .lightbox-close::before {

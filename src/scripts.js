@@ -40,6 +40,13 @@ jQuery(document).ready(function ($) {
     let currentScale = 1;
     let startDistance = 0;
     
+    // Добавляем переменные для отслеживания позиции
+    let startX = 0;
+    let startY = 0;
+    let translateX = 0;
+    let translateY = 0;
+    let isDragging = false;
+    
     // Предотвращаем стандартный зум браузера
     lightboxImg.on('touchstart', function(e) {
         if (e.touches.length === 2) {
@@ -89,18 +96,24 @@ jQuery(document).ready(function ($) {
     function attachTouchEvents() {
         lightboxImg.on('touchstart', function(e) {
             if (e.touches.length === 2) {
+                // Зум с двумя пальцами
                 e.preventDefault();
                 startDistance = Math.hypot(
                     e.touches[0].pageX - e.touches[1].pageX,
                     e.touches[0].pageY - e.touches[1].pageY
                 );
+            } else if (e.touches.length === 1 && currentScale > 1) {
+                // Перемещение одним пальцем при увеличенном масштабе
+                isDragging = true;
+                startX = e.touches[0].pageX - translateX;
+                startY = e.touches[0].pageY - translateY;
             }
         });
 
         lightboxImg.on('touchmove', function(e) {
             if (e.touches.length === 2) {
+                // Зум с двумя пальцами
                 e.preventDefault();
-                
                 const currentDistance = Math.hypot(
                     e.touches[0].pageX - e.touches[1].pageX,
                     e.touches[0].pageY - e.touches[1].pageY
@@ -110,14 +123,32 @@ jQuery(document).ready(function ($) {
                     const scale = (currentDistance / startDistance) * currentScale;
                     const limitedScale = Math.min(Math.max(1, scale), 4);
                     
-                    // Применяем только scale, без translate
-                    $(this).css('transform', `scale(${limitedScale})`);
+                    $(this).css('transform', `translate(${translateX}px, ${translateY}px) scale(${limitedScale})`);
                 }
+            } else if (e.touches.length === 1 && isDragging && currentScale > 1) {
+                // Перемещение одним пальцем
+                e.preventDefault();
+                const maxTranslate = (currentScale - 1) * $(this).width() / 2;
+                
+                translateX = e.touches[0].pageX - startX;
+                translateY = e.touches[0].pageY - startY;
+                
+                // Ограничиваем перемещение
+                translateX = Math.min(Math.max(-maxTranslate, translateX), maxTranslate);
+                translateY = Math.min(Math.max(-maxTranslate, translateY), maxTranslate);
+                
+                $(this).css('transform', `translate(${translateX}px, ${translateY}px) scale(${currentScale})`);
             }
         });
 
         lightboxImg.on('touchend', function(e) {
             if (e.touches.length < 2) {
+                isDragging = false;
+                if (currentScale === 1) {
+                    // Сбрасываем позицию при масштабе 1
+                    translateX = 0;
+                    translateY = 0;
+                }
                 startDistance = 0;
                 // Сохраняем текущий масштаб
                 const matrix = new WebKitCSSMatrix($(this).css('transform'));
