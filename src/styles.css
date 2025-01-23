@@ -516,7 +516,7 @@ section.experience .container {
     color: #fff;
     /* text-shadow: 0 0 40px #CF0060; */
     filter:
-        drop-shadow(0 0 10px rgba(207, 0, 96, 0.8)) drop-shadow(0 0 20px rgba(207, 0, 96, 0.6)) drop-shadow(0 0 40px rgba(207, 0, 96, 0.4)) drop-shadow(0 0 60px rgba(207, 0, 96, 0.2));
+        drop-shadow(0 0 10px rgba(207, 0, 96, 0.6)) drop-shadow(0 0 20px rgba(207, 0, 96, 0.4));
     z-index: 2;
     position: relative;
 }
@@ -759,7 +759,7 @@ section.experience .container {
     left: 0 !important;
     /* background: url('../assets/images/icons/arrow-slider.svg') no-repeat center; */
     z-index: 10;
-    transform: rotate(180deg);
+    transform: rotate(180deg) translateY(50%);
 }
 
 .swiper-button-next {
@@ -1034,7 +1034,8 @@ form .form-button:active {
 
 
 @media screen and (max-width: 1439px) {
-    .bottom,
+
+    .form-bg,
     .footer {
         display: none;
     }
@@ -1158,6 +1159,42 @@ form .form-button:active {
     .experience-item:nth-child(2) {
         left: 45%;
     }
+
+    .bottom {
+        padding: 290px 15px 0 15px;
+    }
+
+    .case-title h2,
+    .case-title span {
+        font-size: 60px;
+    }
+
+    .case-slider .swiper-slide .swiper-slide-image {
+        height: 350px;
+    }
+
+    .case-slider .swiper-slide {
+        height: 425px;
+    }
+
+    .case-slider .swiper-slide .swiper-slide-title h2 {
+        font-size: 30px;
+    }
+
+    .bottom {
+        background-size: 160%;
+        background-position: center -90px;
+    }
+
+    .lightbox img {
+        max-width: 85%;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 45px !important;
+        height: 45px !important;
+    }
 }
 
 @media screen and (max-width: 1200px) {
@@ -1249,34 +1286,64 @@ form .form-button:active {
     .experience-item:first-child .experience-item-title {
         font-size: 84px;
     }
-    
+
     .experience-item:nth-child(2) .experience-item-title {
         font-size: 114px;
     }
-    
+
     .experience-item:nth-child(3) .experience-item-title {
         font-size: 64px;
     }
-    
+
     .experience-item:nth-child(4) .experience-item-title {
         font-size: 114px;
     }
-    
+
     .experience-item:nth-child(5) .experience-item-title {
         font-size: 84px;
     }
-    
+
     .experience-item:nth-child(6) .experience-item-title {
         font-size: 64px;
     }
 
-    .experience-title h2, .experience-title span {
+    .experience-title h2,
+    .experience-title span {
         font-size: 44px;
     }
 
     .experience-item:nth-child(2) {
         left: 48%;
         top: 50px;
+    }
+
+    .case-title h2,
+    .case-title span {
+        font-size: 44px;
+    }
+
+    .case-slider .swiper-slide .swiper-slide-image {
+        height: 330px;
+    }
+
+    .case-slider .swiper-slide {
+        height: 405px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 36px !important;
+        height: 36px !important;
+    }
+
+    .bottom {
+        margin-top: -240px;
+        padding: 220px 15px 0 15px;
+        background-position: center -90px;
+    }
+
+    .case-container {
+        padding: 0 50px;
     }
 }
 
@@ -1474,7 +1541,7 @@ form .form-button:active {
         left: 40px;
         width: 100%;
     }
-    
+
     .experience-item:nth-child(5) {
         left: 0;
         top: 65%;
@@ -1485,7 +1552,36 @@ form .form-button:active {
         top: auto;
     }
 
-    .experience-title h2, .experience-title span {
+    .experience-title h2,
+    .experience-title span {
+        font-size: 42px;
+    }
+
+    .case-slider .swiper-slide .swiper-slide-image {
+        height: 250px;
+    }
+
+    .case-slider .swiper-slide {
+        height: 320px;
+    }
+
+    .case-slider .swiper-slide .swiper-slide-title h2 {
+        font-size: 26px;
+    }
+
+    .swiper-slide-title .arrow svg {
+        width: 15px;
+        height: 15px;
+    }
+
+    .bottom {
+        padding: 180px 15px 0 15px;
+        margin-top: -120px;
+        background-position: center -70px
+    }
+
+    .case-title h2,
+    .case-title span {
         font-size: 42px;
     }
 }
@@ -1579,7 +1675,8 @@ form .form-button:active {
         font-size: 20px;
     }
 
-    .experience-title h2, .experience-title span {
+    .experience-title h2,
+    .experience-title span {
         font-size: 34px;
     }
 
@@ -1611,7 +1708,7 @@ form .form-button:active {
         height: 160px;
     }
 
-    
+
     .experience-item:nth-child(5) {
         left: 10%;
         top: 65%;
@@ -1629,23 +1726,23 @@ form .form-button:active {
     .experience-item:first-child .experience-item-title {
         font-size: 60px;
     }
-    
+
     .experience-item:nth-child(2) .experience-item-title {
         font-size: 80px;
     }
-    
+
     .experience-item:nth-child(3) .experience-item-title {
         font-size: 59px;
     }
-    
+
     .experience-item:nth-child(4) .experience-item-title {
         font-size: 49px;
     }
-    
+
     .experience-item:nth-child(5) .experience-item-title {
         font-size: 59px;
     }
-    
+
     .experience-item:nth-child(6) .experience-item-title {
         font-size: 52px;
     }
@@ -1693,6 +1790,33 @@ form .form-button:active {
     section.experience {
         background-size: 150%;
         background-position: left -30%;
+    }
+
+    .case-title {
+        margin-bottom: 20px;
+    }
+
+    .case-title h2,
+    .case-title span {
+        font-size: 34px;
+    }
+
+    .bottom {
+        padding: 180px 15px 0 15px;
+        margin-top: -155px;
+        background-position: center top;
+    }
+
+    .case-slider .swiper-slide .swiper-slide-image {
+        height: 385px;
+    }
+
+    .case-slider .swiper-slide {
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
     }
 }
 
@@ -1842,6 +1966,53 @@ form .form-button:active {
         min-width: 90%;
         right: 4%;
     }
+
+    .case-slider .swiper-slide .swiper-slide-image {
+        height: 300px;
+    }
+
+    .case-slider .swiper-slide {
+        height: 365px;
+    }
+
+    .case-slider .swiper-slide .swiper-slide-title h2 {
+        font-size: 18px;
+    }
+
+    .case-slider .swiper-slide .swiper-slide-title h2 {
+        padding: 8px 46px 10px 20px;
+    }
+
+    .swiper-slide-title .arrow svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .swiper-slide-title .arrow {
+        top: 5px;
+        right: 4px;
+    }
+
+    .case-slider .swiper-slide .swiper-slide-title h2 {
+        padding: 8px 25px 10px 20px;
+    }
+
+    .swiper-button-prev, .swiper-button-next {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .case-container {
+        padding: 0 32px;
+    }
+
+    .case-slider .swiper-slide {
+        height: 385px;
+    }
+
+    .case-slider .swiper-slide .swiper-slide-image {
+        height: 335px;
+    }
 }
 
 @media screen and (max-width: 499px) {
@@ -1897,7 +2068,7 @@ form .form-button:active {
         right: 0;
     }
 
-    
+
     .experience-item:nth-child(5) {
         left: 0;
         top: 60%;
@@ -1905,6 +2076,19 @@ form .form-button:active {
 
     .experience-item:nth-child(6) {
         bottom: 3%;
+    }
+
+    .case-slider .swiper-slide .swiper-slide-image {
+        height: 283px;
+    }
+
+    .case-slider .swiper-slide {
+        height: 100%;
+    }
+
+    .bottom {
+        background-size: 200%;
+        margin-top: -140px;
     }
 }
 
@@ -1922,6 +2106,8 @@ form .form-button:active {
     section.experience {
         background-position: left -20%;
     }
+
+
 }
 
 @media screen and (max-width: 424px) {
@@ -1942,6 +2128,10 @@ form .form-button:active {
 
     section.experience {
         background-position: left -15%;
+    }
+
+    .case-slider .swiper-slide .swiper-slide-image {
+        height: 230px;
     }
 }
 
@@ -1986,7 +2176,8 @@ form .form-button:active {
         right: -23%;
     }
 
-    .about-title h2, .about-title span {
+    .about-title h2,
+    .about-title span {
         font-size: 28px;
     }
 
@@ -2021,23 +2212,23 @@ form .form-button:active {
     .experience-item:first-child .experience-item-title {
         font-size: 50px;
     }
-    
+
     .experience-item:nth-child(2) .experience-item-title {
         font-size: 70px;
     }
-    
+
     .experience-item:nth-child(3) .experience-item-title {
         font-size: 59px;
     }
-    
+
     .experience-item:nth-child(4) .experience-item-title {
         font-size: 39px;
     }
-    
+
     .experience-item:nth-child(5) .experience-item-title {
         font-size: 49px;
     }
-    
+
     .experience-item:nth-child(6) .experience-item-title {
         font-size: 42px;
     }
@@ -2101,6 +2292,14 @@ form .form-button:active {
 
     .experience-item:nth-child(6) {
         bottom: 6%;
+    }
+
+    .case-title h2, .case-title span {
+        font-size: 28px;
+    }
+
+    .case-slider .swiper-slide .swiper-slide-image {
+        height: 185px;
     }
 }
 
